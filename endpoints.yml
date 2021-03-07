@@ -35,8 +35,16 @@
 # Event broker which all conversation events should be streamed to.
 # https://rasa.com/docs/rasa/event-brokers
 
-#event_broker:
-#  url: localhost
-#  username: username
-#  password: password
-#  queue: queue
+tracker_store:
+    type: mongod
+    url: mongodb://localhost:27017
+    db: rasa-tracker-store
+    username: admin
+    password: password
+#    auth_source: rasa-tracker-store
+
+event_broker:
+  url: localhost
+  username: admin
+  password: password
+  queue: rasa-events
